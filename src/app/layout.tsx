@@ -11,9 +11,43 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Loop Fuels | Sustainable Aviation Fuel",
+  title: {
+    default: "Loop Fuels | Sustainable Aviation Fuel",
+    template: "%s | Loop Fuels",
+  },
   description:
     "Loop Fuels is pioneering the production of Sustainable Aviation Fuel (SAF) to decarbonize the aviation industry and build a cleaner future for flight.",
+  metadataBase: new URL("https://loopfuels.com"),
+  openGraph: {
+    type: "website",
+    siteName: "Loop Fuels",
+    title: "Loop Fuels | Sustainable Aviation Fuel",
+    description:
+      "Loop Fuels is pioneering the production of Sustainable Aviation Fuel (SAF) to decarbonize the aviation industry and build a cleaner future for flight.",
+    url: "https://loopfuels.com",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Loop Fuels Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Loop Fuels | Sustainable Aviation Fuel",
+    description:
+      "Loop Fuels is pioneering the production of Sustainable Aviation Fuel (SAF) to decarbonize the aviation industry and build a cleaner future for flight.",
+    images: ["/logo.jpg"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/favicon-32.png",
+  },
 };
 
 export default function RootLayout({
@@ -23,6 +57,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Loop Fuels",
+              url: "https://loopfuels.com",
+              logo: "https://loopfuels.com/logo.jpg",
+              sameAs: [],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Loop Fuels",
+              url: "https://loopfuels.com",
+            }),
+          }}
+        />
+      </head>
       <body className={`${geistSans.variable} antialiased`}>
         <ScrollAnimator />
         <Navbar />
