@@ -13,6 +13,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
@@ -48,6 +49,7 @@ export default function ContactPage() {
           access_key: "4ff70304-12b4-4dc9-8f73-b6f548cba76f",
           name: formData.name,
           email: formData.email,
+          phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
           from_name: "Loop Fuels Website",
@@ -121,6 +123,19 @@ export default function ContactPage() {
                     placeholder="you@company.com"
                   />
                   {errors.email && <p className="text-red-500 text-xs mt-1.5">{errors.email}</p>}
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-xs font-semibold text-brand-dark mb-2 uppercase tracking-wider">
+                    Contact Number
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className={inputClass(false)}
+                    placeholder="+91 XXXXX XXXXX"
+                  />
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-xs font-semibold text-brand-dark mb-2 uppercase tracking-wider">
