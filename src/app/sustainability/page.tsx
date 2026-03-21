@@ -2,19 +2,16 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionWrapper from "@/components/SectionWrapper";
 import CarbonBars from "@/components/CarbonBars";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import TiltCard from "@/components/TiltCard";
+import CircularEconomy from "@/components/CircularEconomy";
+import FlipCard from "@/components/FlipCard";
 
 const sdgs = [
-  { number: 7, title: "Affordable & Clean Energy", description: "Producing renewable fuel that accelerates the transition to clean energy in aviation." },
-  { number: 9, title: "Industry, Innovation & Infrastructure", description: "Building innovative refinery infrastructure for sustainable fuel production." },
-  { number: 12, title: "Responsible Consumption & Production", description: "Converting waste into valuable fuel through circular economy principles." },
-  { number: 13, title: "Climate Action", description: "Reducing aviation GHG emissions by up to 80% per litre of SAF produced." },
-];
-
-const impactStats = [
-  { value: "80%", label: "Lifecycle GHG Reduction" },
-  { value: "500K+", label: "Tonnes CO2 Avoided/Year" },
-  { value: "0", label: "Food-Competing Feedstocks" },
-  { value: "100%", label: "Waste-Derived Inputs" },
+  { number: 7, title: "Affordable & Clean Energy", description: "Producing renewable fuel that accelerates the transition to clean energy in aviation.", color: "from-yellow-400 to-yellow-500" },
+  { number: 9, title: "Industry, Innovation & Infrastructure", description: "Building innovative refinery infrastructure for sustainable fuel production.", color: "from-orange-400 to-orange-500" },
+  { number: 12, title: "Responsible Consumption & Production", description: "Converting waste into valuable fuel through circular economy principles.", color: "from-amber-500 to-amber-600" },
+  { number: 13, title: "Climate Action", description: "Reducing aviation GHG emissions by up to 80% per litre of SAF produced.", color: "from-emerald-500 to-emerald-600" },
 ];
 
 export default function SustainabilityPage() {
@@ -25,7 +22,7 @@ export default function SustainabilityPage() {
         subtitle="Measuring, reporting, and maximizing our positive impact on the planet and the communities we serve."
       />
 
-      {/* Impact Stats */}
+      {/* Impact Stats - Animated Counters */}
       <SectionWrapper id="impact">
         <div className="text-center mb-16 animate-on-scroll">
           <span className="inline-block text-brand-green text-xs font-semibold uppercase tracking-widest mb-3">
@@ -42,13 +39,14 @@ export default function SustainabilityPage() {
             { value: "0", label: "Food-Competing Feedstocks", icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>) },
             { value: "100%", label: "Waste-Derived Inputs", icon: (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>) },
           ].map((stat) => (
-            <div key={stat.label} className="animate-on-scroll card-hover p-7 rounded-2xl bg-white border border-gray-100 group">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-green to-brand-green/80 flex items-center justify-center mb-5 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                {stat.icon}
+            <TiltCard key={stat.label}>
+              <div className="animate-on-scroll card-hover p-7 rounded-2xl bg-white border border-gray-100 group">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-green to-brand-green/80 flex items-center justify-center mb-5 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  {stat.icon}
+                </div>
+                <AnimatedCounter value={stat.value} label={stat.label} compact />
               </div>
-              <div className="text-2xl md:text-3xl font-bold gradient-text px-1 pb-1 inline-block mb-1 tracking-tight">{stat.value}</div>
-              <p className="text-sm text-gray-500 leading-relaxed">{stat.label}</p>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </SectionWrapper>
@@ -64,13 +62,13 @@ export default function SustainabilityPage() {
           </h2>
           <p className="mt-5 text-gray-500 max-w-2xl mx-auto leading-relaxed">
             A lifecycle analysis comparing carbon emissions from feedstock sourcing through
-            combustion shows SAF&apos;s dramatic advantage.
+            combustion shows SAF&apos;s dramatic advantage. <span className="text-brand-green font-medium">Click the bars to replay the animation.</span>
           </p>
         </div>
         <CarbonBars />
       </SectionWrapper>
 
-      {/* Circular Economy */}
+      {/* Circular Economy - Animated Diagram */}
       <SectionWrapper>
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="animate-on-scroll slide-left">
@@ -103,27 +101,12 @@ export default function SustainabilityPage() {
             </ul>
           </div>
           <div className="animate-on-scroll slide-right">
-            <div className="relative bg-gradient-to-br from-brand-light to-green-50 rounded-3xl p-12 flex items-center justify-center min-h-[380px] border border-green-100/50 overflow-hidden">
-              <div className="absolute top-6 right-6 w-20 h-20 rounded-full border border-brand-green/10" />
-              <div className="absolute bottom-8 left-8 w-32 h-32 rounded-full border border-brand-green/5" />
-              <div className="text-center relative z-10">
-                <div className="w-24 h-24 mx-auto mb-5 bg-white rounded-2xl shadow-lg shadow-green-100 flex items-center justify-center float">
-                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21.5 2v6h-6" />
-                    <path d="M2.5 22v-6h6" />
-                    <path d="M21.5 8A10 10 0 0 0 5.3 5.3L2.5 8" />
-                    <path d="M2.5 16a10 10 0 0 0 16.2 2.7l2.8-2.7" />
-                  </svg>
-                </div>
-                <p className="text-brand-dark font-semibold text-lg">Circular Model</p>
-                <p className="text-sm text-gray-400 mt-1">Waste In, Clean Fuel Out</p>
-              </div>
-            </div>
+            <CircularEconomy />
           </div>
         </div>
       </SectionWrapper>
 
-      {/* UN SDGs */}
+      {/* UN SDGs - Flip Cards */}
       <SectionWrapper bg="light">
         <div className="text-center mb-16 animate-on-scroll">
           <span className="inline-block text-brand-green text-xs font-semibold uppercase tracking-widest mb-3">
@@ -133,19 +116,33 @@ export default function SustainabilityPage() {
             UN Sustainable Development Goals
           </h2>
           <p className="mt-5 text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Our operations contribute to four key UN SDGs, aligning our business
-            with the world&apos;s most pressing sustainability targets.
+            Our operations contribute to four key UN SDGs. <span className="text-brand-green font-medium">Hover over each card to learn more.</span>
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
           {sdgs.map((sdg) => (
-            <div key={sdg.number} className="animate-on-scroll card-hover p-7 rounded-2xl bg-white border border-gray-100 group">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-green to-brand-green/80 text-white flex items-center justify-center font-bold text-lg mb-5 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                {sdg.number}
-              </div>
-              <h3 className="font-semibold text-brand-dark mb-2 text-sm tracking-tight">{sdg.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{sdg.description}</p>
-            </div>
+            <FlipCard
+              key={sdg.number}
+              className="animate-on-scroll h-[220px]"
+              front={
+                <div className="h-full p-7 rounded-2xl bg-white border border-gray-100 flex flex-col items-center justify-center text-center">
+                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${sdg.color} text-white flex items-center justify-center font-bold text-2xl mb-4 shadow-lg`}>
+                    {sdg.number}
+                  </div>
+                  <h3 className="font-semibold text-brand-dark text-sm tracking-tight">{sdg.title}</h3>
+                  <p className="text-[10px] text-gray-400 mt-2">Hover to learn more</p>
+                </div>
+              }
+              back={
+                <div className={`h-full p-7 rounded-2xl bg-gradient-to-br ${sdg.color} flex flex-col items-center justify-center text-center text-white`}>
+                  <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center font-bold text-lg mb-3">
+                    {sdg.number}
+                  </div>
+                  <h3 className="font-semibold text-sm mb-2">{sdg.title}</h3>
+                  <p className="text-xs text-white/90 leading-relaxed">{sdg.description}</p>
+                </div>
+              }
+            />
           ))}
         </div>
       </SectionWrapper>

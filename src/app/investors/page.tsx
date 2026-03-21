@@ -2,6 +2,9 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionWrapper from "@/components/SectionWrapper";
 import IconCard from "@/components/IconCard";
+import TiltCard from "@/components/TiltCard";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import AnimatedBarChart from "@/components/AnimatedBarChart";
 
 const highlights = [
   {
@@ -48,16 +51,11 @@ const highlights = [
   },
 ];
 
-const metrics = [
-  { label: "Fund to Raise", value: "₹1000 Cr", icon: (<span className="text-xl font-bold leading-none">₹</span>) },
-  { label: "Production Capacity", value: "189M Litres/Year", icon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>) },
-];
-
 const marketData = [
-  { year: "2024", size: "$5B", height: 60 },
-  { year: "2026", size: "$14B", height: 120 },
-  { year: "2028", size: "$32B", height: 200 },
-  { year: "2030", size: "$61B", height: 280 },
+  { year: "2024", size: "$5B", height: 60, detail: "Current market size" },
+  { year: "2026", size: "$14B", height: 120, detail: "2.8x growth projected" },
+  { year: "2028", size: "$32B", height: 200, detail: "Mandate-driven acceleration" },
+  { year: "2030", size: "$61B", height: 280, detail: "12x from 2024 levels" },
 ];
 
 export default function InvestorsPage() {
@@ -81,12 +79,14 @@ export default function InvestorsPage() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
           {highlights.map((h) => (
-            <IconCard key={h.title} icon={h.icon} title={h.title} description={h.description} />
+            <TiltCard key={h.title}>
+              <IconCard icon={h.icon} title={h.title} description={h.description} />
+            </TiltCard>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* Market Opportunity */}
+      {/* Market Opportunity - Animated Bar Chart */}
       <SectionWrapper bg="light">
         <div className="text-center mb-16 animate-on-scroll">
           <span className="inline-block text-brand-green text-xs font-semibold uppercase tracking-widest mb-3">
@@ -97,32 +97,13 @@ export default function InvestorsPage() {
           </h2>
           <p className="mt-5 text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Regulatory mandates and corporate commitments are driving exponential growth
-            in SAF demand globally.
+            in SAF demand globally. <span className="text-brand-green font-medium">Hover over bars for details.</span>
           </p>
         </div>
-        <div className="max-w-3xl mx-auto animate-on-scroll">
-          <div className="flex items-end justify-center gap-6 md:gap-10" style={{ height: "320px" }}>
-            {marketData.map((d) => (
-              <div key={d.year} className="flex flex-col items-center gap-3" style={{ flex: "1", maxWidth: "120px" }}>
-                <div className="text-lg md:text-xl font-bold gradient-text">{d.size}</div>
-                <div
-                  className="w-full rounded-2xl bg-gradient-to-t from-brand-green to-brand-green/60 relative group hover:from-green-600 hover:to-green-400 transition-all duration-500 shadow-lg shadow-brand-green/10"
-                  style={{ height: `${d.height}px` }}
-                >
-                  <div className="absolute inset-0 rounded-2xl shimmer" />
-                </div>
-                <div className="text-sm font-semibold text-brand-dark mt-1">{d.year}</div>
-              </div>
-            ))}
-          </div>
-          <div className="max-w-lg mx-auto border-t border-gray-200 mt-0" />
-          <p className="text-center text-xs text-gray-400 mt-6">
-            Source: Industry estimates. Global SAF market size projections.
-          </p>
-        </div>
+        <AnimatedBarChart data={marketData} />
       </SectionWrapper>
 
-      {/* Key Metrics */}
+      {/* Key Metrics - Animated Counters */}
       <SectionWrapper>
         <div className="text-center mb-16 animate-on-scroll">
           <span className="inline-block text-brand-green text-xs font-semibold uppercase tracking-widest mb-3">
@@ -134,61 +115,65 @@ export default function InvestorsPage() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
           {/* Fund to Raise */}
-          <div className="animate-on-scroll card-hover group relative rounded-2xl bg-gradient-to-br from-white to-brand-light/30 border border-green-100/60 p-7 overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-brand-green/5 to-transparent rounded-bl-full pointer-events-none" />
-            <div className="relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-green to-emerald-600 flex items-center justify-center mb-5 shadow-lg shadow-brand-green/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                <span className="text-2xl font-bold text-white leading-none">₹</span>
+          <TiltCard>
+            <div className="animate-on-scroll group relative rounded-2xl bg-gradient-to-br from-white to-brand-light/30 border border-green-100/60 p-7 overflow-hidden hover:shadow-xl hover:shadow-brand-green/10 transition-shadow duration-500">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-brand-green/5 to-transparent rounded-bl-full pointer-events-none" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-green to-emerald-600 flex items-center justify-center mb-5 shadow-lg shadow-brand-green/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <span className="text-2xl font-bold text-white leading-none">₹</span>
+                </div>
+                <AnimatedCounter value="1000" label="Fund to Raise (₹ Cr)" compact />
               </div>
-              <div className="text-2xl md:text-3xl font-bold gradient-text px-1 pb-1 inline-block mb-1 tracking-tight">₹1000 Cr</div>
-              <p className="text-sm text-gray-500">Fund to Raise</p>
             </div>
-          </div>
+          </TiltCard>
           {/* Production Capacity */}
-          <div className="animate-on-scroll card-hover group relative rounded-2xl bg-gradient-to-br from-white to-blue-50/30 border border-sky-100/60 p-7 overflow-hidden">
-            <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-brand-accent/5 to-transparent rounded-tr-full pointer-events-none" />
-            <div className="relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent to-sky-600 flex items-center justify-center mb-5 shadow-lg shadow-brand-accent/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <path d="M14 2v6h6" />
-                  <path d="M8 13h2v4H8z" />
-                  <path d="M14 11h2v6h-2z" />
-                </svg>
+          <TiltCard>
+            <div className="animate-on-scroll group relative rounded-2xl bg-gradient-to-br from-white to-blue-50/30 border border-sky-100/60 p-7 overflow-hidden hover:shadow-xl hover:shadow-brand-accent/10 transition-shadow duration-500">
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-brand-accent/5 to-transparent rounded-tr-full pointer-events-none" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-accent to-sky-600 flex items-center justify-center mb-5 shadow-lg shadow-brand-accent/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <path d="M14 2v6h6" />
+                    <path d="M8 13h2v4H8z" />
+                    <path d="M14 11h2v6h-2z" />
+                  </svg>
+                </div>
+                <AnimatedCounter value="189M" label="Production Capacity (L/Yr)" compact />
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-brand-accent mb-1 tracking-tight">189M L/Yr</div>
-              <p className="text-sm text-gray-500">Production Capacity</p>
             </div>
-          </div>
+          </TiltCard>
           {/* Market CAGR */}
-          <div className="animate-on-scroll card-hover group relative rounded-2xl bg-gradient-to-br from-white to-emerald-50/30 border border-green-100/60 p-7 overflow-hidden">
-            <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-brand-green/5 to-transparent rounded-br-full pointer-events-none" />
-            <div className="relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-brand-green flex items-center justify-center mb-5 shadow-lg shadow-green-500/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                  <polyline points="17 6 23 6 23 12" />
-                </svg>
+          <TiltCard>
+            <div className="animate-on-scroll group relative rounded-2xl bg-gradient-to-br from-white to-emerald-50/30 border border-green-100/60 p-7 overflow-hidden hover:shadow-xl hover:shadow-green-500/10 transition-shadow duration-500">
+              <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-brand-green/5 to-transparent rounded-br-full pointer-events-none" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-brand-green flex items-center justify-center mb-5 shadow-lg shadow-green-500/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg>
+                </div>
+                <AnimatedCounter value="30%+" label="Market CAGR (2024-2030)" compact />
               </div>
-              <div className="text-2xl md:text-3xl font-bold gradient-text px-1 pb-1 inline-block mb-1 tracking-tight">30%+</div>
-              <p className="text-sm text-gray-500">Market CAGR (2024-2030)</p>
             </div>
-          </div>
+          </TiltCard>
           {/* 2030 Market Size */}
-          <div className="animate-on-scroll card-hover group relative rounded-2xl bg-gradient-to-br from-white to-sky-50/30 border border-sky-100/60 p-7 overflow-hidden">
-            <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-brand-accent/5 to-transparent rounded-tl-full pointer-events-none" />
-            <div className="relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-brand-accent flex items-center justify-center mb-5 shadow-lg shadow-sky-500/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
+          <TiltCard>
+            <div className="animate-on-scroll group relative rounded-2xl bg-gradient-to-br from-white to-sky-50/30 border border-sky-100/60 p-7 overflow-hidden hover:shadow-xl hover:shadow-sky-500/10 transition-shadow duration-500">
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tl from-brand-accent/5 to-transparent rounded-tl-full pointer-events-none" />
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-brand-accent flex items-center justify-center mb-5 shadow-lg shadow-sky-500/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <AnimatedCounter value="$61B" label="2030 Market Size" compact />
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-brand-accent mb-1 tracking-tight">$61B</div>
-              <p className="text-sm text-gray-500">2030 Market Size</p>
             </div>
-          </div>
+          </TiltCard>
         </div>
       </SectionWrapper>
 

@@ -1,13 +1,20 @@
 import Link from "next/link";
 import SectionWrapper from "@/components/SectionWrapper";
-import StatCard from "@/components/StatCard";
 import IconCard from "@/components/IconCard";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import TypeWriter from "@/components/TypeWriter";
+import FloatingParticles from "@/components/FloatingParticles";
+import TiltCard from "@/components/TiltCard";
+import ProcessTimeline from "@/components/ProcessTimeline";
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-24 md:pt-44 md:pb-36 bg-gradient-to-br from-brand-dark via-brand-dark to-brand-green/60 overflow-hidden grain-overlay">
+        {/* Floating Particles */}
+        <FloatingParticles />
+
         {/* Decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-[10%] w-[500px] h-[500px] bg-brand-green/8 rounded-full blur-3xl float-slow" />
@@ -28,7 +35,9 @@ export default function Home() {
             </span>
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight animate-fade-in-up animation-delay-200">
               Powering the Future <br />
-              <span className="gradient-text">of Clean Flight</span>
+              <span className="gradient-text">
+                <TypeWriter text="of Clean Flight" delay={90} startDelay={1000} />
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300/80 mb-10 leading-relaxed max-w-2xl animate-fade-in-up animation-delay-400">
               Loop Fuels produces next-generation Sustainable Aviation Fuel that
@@ -55,15 +64,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Bar */}
+      {/* Stats Bar - Animated Counters */}
       <section className="relative bg-white border-b border-gray-100/80">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-green/20 to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2">
             <div className="border-r border-gray-100">
-              <StatCard value="80%" label="CO2 Reduction" />
+              <AnimatedCounter value="80%" label="CO2 Reduction" />
             </div>
-            <StatCard value="189M" label="Litres/Year Capacity" />
+            <AnimatedCounter value="189M" label="Litres/Year Capacity" />
           </div>
         </div>
       </section>
@@ -84,34 +93,40 @@ export default function Home() {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 stagger-children">
-          <IconCard
-            icon={
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 20l4-16m2 16l4-16M3 8h18M3 16h18" />
-              </svg>
-            }
-            title="Renewable Feedstocks"
-            description="Produced from waste oils, agricultural residues, and other sustainable sources that don't compete with food production."
-          />
-          <IconCard
-            icon={
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-              </svg>
-            }
-            title="Drop-In Compatible"
-            description="Fully compatible with existing aircraft engines and fueling infrastructure. No modifications needed for immediate deployment."
-          />
-          <IconCard
-            icon={
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
-            }
-            title="Up to 80% Cleaner"
-            description="Reduces lifecycle greenhouse gas emissions by up to 80% compared to conventional fossil-based jet fuel."
-          />
+          <TiltCard>
+            <IconCard
+              icon={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 20l4-16m2 16l4-16M3 8h18M3 16h18" />
+                </svg>
+              }
+              title="Renewable Feedstocks"
+              description="Produced from waste oils, agricultural residues, and other sustainable sources that don't compete with food production."
+            />
+          </TiltCard>
+          <TiltCard>
+            <IconCard
+              icon={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+                </svg>
+              }
+              title="Drop-In Compatible"
+              description="Fully compatible with existing aircraft engines and fueling infrastructure. No modifications needed for immediate deployment."
+            />
+          </TiltCard>
+          <TiltCard>
+            <IconCard
+              icon={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              }
+              title="Up to 80% Cleaner"
+              description="Reduces lifecycle greenhouse gas emissions by up to 80% compared to conventional fossil-based jet fuel."
+            />
+          </TiltCard>
         </div>
       </SectionWrapper>
 
@@ -130,18 +145,9 @@ export default function Home() {
               converts waste feedstocks into high-quality SAF through a proven,
               scalable process.
             </p>
-            <ul className="space-y-4 mb-8">
-              {["Feedstock collection & pre-treatment", "Hydroprocessing & isomerization", "Quality testing & ASTM certification", "Distribution to airline partners"].map(
-                (step, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-gray-600">
-                    <span className="w-7 h-7 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center text-xs font-bold shrink-0">
-                      {i + 1}
-                    </span>
-                    {step}
-                  </li>
-                )
-              )}
-            </ul>
+            <div className="mb-8">
+              <ProcessTimeline />
+            </div>
             <Link
               href="/technology"
               className="link-arrow text-brand-green font-semibold text-sm"
@@ -189,10 +195,12 @@ export default function Home() {
             { value: "500K+", label: "Tonnes of CO2 avoided annually at full capacity" },
             { value: "100%", label: "Waste-derived feedstock, zero competition with food" },
           ].map((stat, i) => (
-            <div key={i} className="animate-on-scroll group text-center p-8 rounded-2xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.06] hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-green/10 hover:border-brand-green/20 transition-all duration-500 cursor-default">
-              <div className="text-4xl md:text-5xl font-bold text-brand-green mb-3 tracking-tight transition-transform duration-500 group-hover:scale-110">{stat.value}</div>
-              <p className="text-sm text-gray-400 leading-relaxed transition-colors duration-500 group-hover:text-gray-300">{stat.label}</p>
-            </div>
+            <TiltCard key={i}>
+              <div className="animate-on-scroll group text-center p-8 rounded-2xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm hover:bg-white/[0.06] hover:shadow-xl hover:shadow-brand-green/10 hover:border-brand-green/20 transition-all duration-500 cursor-default">
+                <div className="text-4xl md:text-5xl font-bold text-brand-green mb-3 tracking-tight transition-transform duration-500 group-hover:scale-110">{stat.value}</div>
+                <p className="text-sm text-gray-400 leading-relaxed transition-colors duration-500 group-hover:text-gray-300">{stat.label}</p>
+              </div>
+            </TiltCard>
           ))}
         </div>
         <div className="text-center mt-12">
