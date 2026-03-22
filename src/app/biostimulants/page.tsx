@@ -464,6 +464,7 @@ export default function BiostimulantPage() {
   const [activeTimeline, setActiveTimeline] = useState(0);
   const [activeChain, setActiveChain] = useState(0);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [flippedCard, setFlippedCard] = useState<number | null>(null);
 
   const faqs = [
     {
@@ -612,11 +613,11 @@ export default function BiostimulantPage() {
 
         {/* Growth Bar Visualization — Vertical */}
         <div className="max-w-4xl mx-auto mb-16 animate-on-scroll">
-          <div className="relative p-8 md:p-10 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50/50 border border-green-100 overflow-hidden">
+          <div className="relative p-6 md:p-10 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50/50 border border-green-100">
             <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-2">Market Growth Trajectory</h3>
             <p className="text-gray-500 text-sm mb-8">Projected market size from 2023 to 2030 (in ₹ Crores)</p>
 
-            <div className="flex items-end justify-between gap-2 md:gap-4" style={{ height: "320px" }}>
+            <div className="grid grid-cols-8 gap-1 md:gap-3 items-end" style={{ height: "280px" }}>
               {[
                 { year: "2023", value: 1420, max: 2856, color: "from-emerald-400 to-emerald-500" },
                 { year: "2024", value: 1580, max: 2856, color: "from-emerald-400 to-green-500" },
@@ -627,16 +628,16 @@ export default function BiostimulantPage() {
                 { year: "2029", value: 2598, max: 2856, color: "from-emerald-400 to-green-500" },
                 { year: "2030", value: 2856, max: 2856, color: "from-green-500 to-emerald-600" },
               ].map((bar, i) => (
-                <div key={i} className="group flex-1 flex flex-col items-center gap-2 cursor-default h-full justify-end">
-                  <span className="text-xs md:text-sm font-bold text-gray-500 group-hover:text-brand-green transition-colors duration-300 whitespace-nowrap">₹{bar.value.toLocaleString()}</span>
+                <div key={i} className="group flex flex-col items-center gap-1 cursor-default h-full justify-end">
+                  <span className="text-[9px] md:text-xs font-bold text-gray-500 group-hover:text-brand-green transition-colors duration-300 whitespace-nowrap">₹{bar.value.toLocaleString()}</span>
                   <div className="w-full bg-white rounded-t-lg border border-gray-100 shadow-sm overflow-hidden relative transition-all duration-500 group-hover:shadow-lg group-hover:border-green-200"
-                    style={{ height: `${(bar.value / bar.max) * 85}%` }}
+                    style={{ height: `${(bar.value / bar.max) * 80}%` }}
                   >
                     <div className={`absolute inset-0 bg-gradient-to-t ${bar.color} transition-all duration-700 group-hover:brightness-110`}>
                       <div className="absolute inset-0 bg-gradient-to-t from-white/0 via-white/10 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   </div>
-                  <span className="text-xs md:text-sm font-mono text-gray-400 group-hover:text-brand-dark transition-colors duration-300 font-semibold">{bar.year}</span>
+                  <span className="text-[9px] md:text-xs font-mono text-gray-400 group-hover:text-brand-dark transition-colors duration-300 font-semibold">{bar.year}</span>
                 </div>
               ))}
             </div>
@@ -734,7 +735,8 @@ export default function BiostimulantPage() {
             From root tips to soil microbes, biostimulants create cascading positive
             effects across the entire agricultural ecosystem.
           </p>
-          <p className="mt-2 text-xs text-gray-400">Hover over each card to explore</p>
+          <p className="mt-2 text-xs text-gray-400 hidden md:block">Hover over each card to explore</p>
+          <p className="mt-2 text-xs text-gray-400 md:hidden">Tap any card to explore</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
           {benefits.map((b, i) => {
@@ -749,11 +751,11 @@ export default function BiostimulantPage() {
             const sv = statValues[i];
             return (
               <TiltCard key={i}>
-                <div className="animate-on-scroll relative h-80 [perspective:1000px] cursor-pointer group">
-                  {/* Front */}
-                  <div className="absolute inset-0 [backface-visibility:hidden] transition-transform duration-700 group-hover:[transform:rotateY(180deg)]">
+                {/* Desktop: 3D flip on hover */}
+                <div className="animate-on-scroll hidden md:block relative h-80 [perspective:1000px] cursor-pointer group">
+                  <div className="absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     <div className="h-full p-8 rounded-2xl bg-white border border-gray-100 hover:border-brand-green/20 shadow-sm flex flex-col">
-                      <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green mb-5 transition-all duration-500">
+                      <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green mb-5">
                         {b.icon}
                       </div>
                       <h3 className="text-lg font-semibold text-brand-dark mb-2">{b.title}</h3>
@@ -764,13 +766,42 @@ export default function BiostimulantPage() {
                       </div>
                     </div>
                   </div>
-                  {/* Back */}
-                  <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] transition-transform duration-700 group-hover:[transform:rotateY(360deg)]">
+                  <div className="absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] transition-transform duration-700 group-hover:[transform:rotateY(360deg)]">
                     <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-brand-green to-emerald-600 text-white flex flex-col items-center justify-center text-center shadow-xl shadow-green-200/50">
                       <div className="text-5xl font-bold mb-2">{sv.stat}</div>
                       <div className="text-base font-semibold mb-2">{sv.highlight}</div>
                       <div className="text-sm text-white/70">{sv.detail}</div>
                       <div className="mt-4 w-16 h-0.5 bg-white/30 rounded-full" />
+                    </div>
+                  </div>
+                </div>
+                {/* Mobile: tap to reveal impact overlay */}
+                <div
+                  className="animate-on-scroll md:hidden cursor-pointer"
+                  onClick={() => setFlippedCard(flippedCard === i ? null : i)}
+                >
+                  <div className={`relative overflow-hidden rounded-2xl border transition-all duration-500 ${
+                    flippedCard === i
+                      ? "bg-gradient-to-br from-brand-green to-emerald-600 border-brand-green shadow-xl shadow-green-200/50"
+                      : "bg-white border-gray-100"
+                  }`}>
+                    <div className={`p-8 transition-all duration-500 ${flippedCard === i ? "opacity-0 h-0 p-0 overflow-hidden" : "opacity-100"}`}>
+                      <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green mb-5">
+                        {b.icon}
+                      </div>
+                      <h3 className="text-lg font-semibold text-brand-dark mb-2">{b.title}</h3>
+                      <p className="text-sm text-gray-500 leading-relaxed">{b.description}</p>
+                      <div className="mt-4 flex items-center gap-1 text-xs text-brand-green font-medium">
+                        <span>Tap to see impact</span>
+                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </div>
+                    </div>
+                    <div className={`p-8 text-center text-white transition-all duration-500 ${flippedCard === i ? "opacity-100" : "opacity-0 h-0 p-0 overflow-hidden"}`}>
+                      <div className="text-5xl font-bold mb-2">{sv.stat}</div>
+                      <div className="text-base font-semibold mb-2">{sv.highlight}</div>
+                      <div className="text-sm text-white/70 mb-3">{sv.detail}</div>
+                      <div className="w-16 h-0.5 bg-white/30 rounded-full mx-auto mb-3" />
+                      <p className="text-xs text-white/40">Tap to flip back</p>
                     </div>
                   </div>
                 </div>
