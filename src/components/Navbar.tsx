@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/technology", label: "Technology" },
   { href: "/sustainability", label: "Sustainability" },
+  { href: "/biostimulants", label: "Biostimulants" },
   { href: "/investors", label: "Investors" },
   { href: "/about", label: "About" },
 ];
