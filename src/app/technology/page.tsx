@@ -69,7 +69,7 @@ const feedstocks = [
 ];
 
 const specs = [
-  { label: "Annual Capacity", value: "189 Million Litres", progress: 95 },
+  { label: "Annual Capacity", value: "2.5 Crore Litres", progress: 95 },
   { label: "Conversion Pathway", value: "HEFA", progress: 100 },
   { label: "Blend Ratio", value: "Up to 50% with conventional Jet A-1", progress: 50 },
   { label: "GHG Reduction", value: "Up to 80% lifecycle reduction", progress: 80 },
@@ -328,7 +328,7 @@ export default function TechnologyPage() {
               <div className="absolute top-6 right-6 w-24 h-24 rounded-full border border-brand-green/10 animate-pulse" />
               <div className="absolute bottom-8 left-8 w-36 h-36 rounded-full border border-brand-green/5 animate-pulse" style={{ animationDelay: "1s" }} />
               <div className="text-center relative z-10">
-                <AnimatedCounter value="189M" label="Litres Per Year" />
+                <AnimatedCounter value="2.5 Cr" label="Litres Per Year" />
                 <p className="text-sm text-gray-400 mt-3">Full-scale commercial production capacity</p>
               </div>
             </div>

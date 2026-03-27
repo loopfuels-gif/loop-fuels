@@ -72,7 +72,7 @@ export default function Home() {
             <div className="border-r border-gray-100">
               <AnimatedCounter value="80%" label="CO2 Reduction" />
             </div>
-            <AnimatedCounter value="189M" label="Litres/Year Capacity" />
+            <AnimatedCounter value="2.5 Cr" label="Litres/Year Capacity" />
           </div>
         </div>
       </section>

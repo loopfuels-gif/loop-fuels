@@ -139,7 +139,7 @@ export default function InvestorsPage() {
                     <path d="M14 11h2v6h-2z" />
                   </svg>
                 </div>
-                <AnimatedCounter value="189M" label="Production Capacity (L/Yr)" compact />
+                <AnimatedCounter value="2.5 Cr" label="Production Capacity (L/Yr)" compact />
               </div>
             </div>
           </TiltCard>
