@@ -71,8 +71,8 @@ export default function Footer() {
               Get in Touch
             </h4>
             <div className="space-y-3">
-              <p className="text-sm text-gray-400">loopfuels@gmail.com</p>
-              <p className="text-sm text-gray-400">+91 9075346665</p>
+              <a href="mailto:loopfuels@gmail.com" className="block text-sm text-gray-400 hover:text-brand-green transition-colors duration-300">loopfuels@gmail.com</a>
+              <a href="tel:+919075346665" className="block text-sm text-gray-400 hover:text-brand-green transition-colors duration-300">+91 9075346665</a>
             </div>
           </div>
         </div>
