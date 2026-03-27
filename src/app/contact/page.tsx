@@ -199,6 +199,7 @@ export default function ContactPage() {
                     ),
                     title: "Email",
                     lines: ["loopfuels@gmail.com"],
+                    href: "mailto:loopfuels@gmail.com",
                   },
                   {
                     icon: (
@@ -208,6 +209,7 @@ export default function ContactPage() {
                     ),
                     title: "Phone",
                     lines: ["+91 9075346665"],
+                    href: "tel:+919075346665",
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-4 group">
@@ -217,7 +219,11 @@ export default function ContactPage() {
                     <div>
                       <p className="text-sm font-semibold text-brand-dark mb-0.5">{item.title}</p>
                       {item.lines.map((line, i) => (
-                        <p key={i} className="text-sm text-gray-500">{line}</p>
+                        item.href ? (
+                          <a key={i} href={item.href} className="text-sm text-brand-green hover:underline transition-colors duration-300">{line}</a>
+                        ) : (
+                          <p key={i} className="text-sm text-gray-500">{line}</p>
+                        )
                       ))}
                     </div>
                   </div>
