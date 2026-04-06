@@ -352,6 +352,180 @@ export default function TechnologyPage() {
           ))}
         </div>
       </SectionWrapper>
+
+      {/* CSIR-IIP Technology */}
+      <SectionWrapper id="csir-technology">
+        <div className="text-center mb-16">
+          <span className="inline-block text-brand-green text-xs font-semibold uppercase tracking-widest mb-3">
+            Our Technology Partner
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark tracking-tight">
+            CSIR-IIP SAF Technology
+          </h2>
+          <p className="mt-5 text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            Loop Fuels uses the indigenous SAF technology developed by CSIR-Indian Institute of Petroleum (IIP), Dehradun — India&apos;s premier petroleum research laboratory.
+          </p>
+        </div>
+
+        {/* What is CSIR-IIP */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+          <div>
+            <h3 className="text-2xl font-bold text-brand-dark mb-4">What is CSIR-IIP?</h3>
+            <p className="text-gray-500 leading-relaxed mb-4">
+              The <span className="text-brand-dark font-medium">Council of Scientific and Industrial Research — Indian Institute of Petroleum</span> (CSIR-IIP) is India&apos;s leading research lab for petroleum and clean energy technologies, based in Dehradun.
+            </p>
+            <p className="text-gray-500 leading-relaxed mb-4">
+              CSIR-IIP developed India&apos;s first indigenous bio-jet fuel technology — a <span className="text-brand-dark font-medium">single-step catalytic process</span> that converts waste oils and fats into aviation-grade fuel. This technology has been formally certified for use on Indian Air Force military aircraft.
+            </p>
+            <p className="text-gray-500 leading-relaxed">
+              Major partners include <span className="text-brand-dark font-medium">Airbus, IndiGo, SpiceJet, and Air India</span> — all collaborating with CSIR-IIP to scale SAF production in India.
+            </p>
+          </div>
+          <div className="relative bg-gradient-to-br from-emerald-50 to-green-50 rounded-3xl p-8 border border-green-100/50">
+            <div className="space-y-5">
+              {[
+                { label: "Established", value: "1960", sub: "65+ years of petroleum research" },
+                { label: "Location", value: "Dehradun", sub: "Uttarakhand, India" },
+                { label: "SAF Pilot Plant", value: "50 kg/day", sub: "Feed processing capacity" },
+                { label: "Bio-Jet Fuel Produced", value: "10,000 L", sub: "For Indian Air Force testing" },
+              ].map((item, i) => (
+                <div key={i} className="group flex items-start gap-4 p-3 rounded-xl hover:bg-white/60 transition-all duration-300">
+                  <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center text-brand-green font-bold text-xs group-hover:bg-brand-green group-hover:text-white transition-all duration-300">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <span className="text-xs text-gray-400 uppercase tracking-wider">{item.label}</span>
+                    <p className="text-brand-dark font-semibold">{item.value}</p>
+                    <p className="text-xs text-gray-500">{item.sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* How the Technology Works */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold text-brand-dark text-center mb-10">How the CSIR-IIP Process Works</h3>
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                title: "Waste Oil Collection",
+                desc: "Used cooking oil, non-edible plant oils (karanja, jatropha), animal fats, and algae-derived lipids are collected as feedstock.",
+                icon: "🛢️",
+              },
+              {
+                step: "02",
+                title: "Single-Step Catalysis",
+                desc: "Feedstock undergoes CSIR-IIP's patented one-step catalytic hydroprocessing — converting triglycerides directly into jet-range hydrocarbons.",
+                icon: "⚗️",
+              },
+              {
+                step: "03",
+                title: "Purification",
+                desc: "The output is refined and fractionated to isolate aviation-grade kerosene (C8-C16 range) meeting Jet A-1 specifications.",
+                icon: "🔬",
+              },
+              {
+                step: "04",
+                title: "Blending & Delivery",
+                desc: "SAF is blended up to 50% with conventional jet fuel (as per ASTM D7566) and delivered to airport fuel systems.",
+                icon: "✈️",
+              },
+            ].map((item, i) => (
+              <div key={i} className="group relative p-6 rounded-2xl bg-white border border-gray-100 hover:border-brand-green/20 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-500 hover:-translate-y-1">
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <span className="text-[10px] text-brand-green font-bold uppercase tracking-widest">Step {item.step}</span>
+                <h4 className="text-base font-semibold text-brand-dark mt-1 mb-2">{item.title}</h4>
+                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                {i < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 text-brand-green/30 text-xl">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Why This Technology */}
+        <div className="mb-10">
+          <h3 className="text-2xl font-bold text-brand-dark text-center mb-4">Why CSIR-IIP Technology?</h3>
+          <p className="text-gray-500 text-center max-w-2xl mx-auto mb-10 leading-relaxed">
+            Compared to 2-step processes from the US and Europe, CSIR-IIP&apos;s single-step approach offers clear advantages for Indian SAF production.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Lower Production Cost",
+                desc: "Single-step catalysis eliminates an entire processing stage, reducing capital and operational costs compared to imported 2-step technologies.",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Made in India",
+                desc: "Indigenous patented technology — no foreign licensing fees. Supports Atmanirbhar Bharat and reduces dependence on imported fuel technology.",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" />
+                    <path d="M12 3v18" />
+                    <path d="M3 12h18" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Military Certified",
+                desc: "Formally approved by the Indian Air Force for use on military aircraft — the highest validation of fuel quality and reliability.",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Flexible Feedstock",
+                desc: "Processes a wide range of inputs — used cooking oil, jatropha, karanja, palm fatty acid distillates, and algae-derived lipids.",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 3v12" />
+                    <path d="M12 3c-2 4-5 6-5 10a5 5 0 0 0 10 0c0-4-3-6-5-10Z" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Drop-In Compatible",
+                desc: "Produces fuel that is chemically identical to conventional jet fuel — works in existing engines and airport infrastructure with zero modifications.",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+                  </svg>
+                ),
+              },
+              {
+                title: "CORSIA Compliant",
+                desc: "Meets ICAO's Carbon Offsetting and Reduction Scheme for International Aviation — enabling Indian airlines to meet global emission targets.",
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                ),
+              },
+            ].map((item, i) => (
+              <div key={i} className="group p-6 rounded-2xl bg-white border border-gray-100 hover:border-brand-green/20 hover:shadow-xl hover:shadow-green-100/50 transition-all duration-500 hover:-translate-y-1">
+                <div className="w-12 h-12 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green mb-4 group-hover:bg-brand-green group-hover:text-white transition-all duration-500">
+                  {item.icon}
+                </div>
+                <h4 className="text-base font-semibold text-brand-dark mb-2">{item.title}</h4>
+                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
     </>
   );
 }
