@@ -116,7 +116,7 @@ export default function SustainabilityPage() {
             UN Sustainable Development Goals
           </h2>
           <p className="mt-5 text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Our operations contribute to four key UN SDGs. <span className="text-brand-green font-medium">Hover over each card to learn more.</span>
+            Our operations contribute to four key UN SDGs. <span className="text-brand-green font-medium md:hidden">Tap each card to learn more.</span><span className="text-brand-green font-medium hidden md:inline">Hover over each card to learn more.</span>
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
@@ -130,7 +130,7 @@ export default function SustainabilityPage() {
                     {sdg.number}
                   </div>
                   <h3 className="font-semibold text-brand-dark text-sm tracking-tight">{sdg.title}</h3>
-                  <p className="text-[10px] text-gray-400 mt-2">Hover to learn more</p>
+                  <p className="text-[10px] text-gray-400 mt-2 md:hidden">Tap to learn more</p><p className="text-[10px] text-gray-400 mt-2 hidden md:block">Hover to learn more</p>
                 </div>
               }
               back={
