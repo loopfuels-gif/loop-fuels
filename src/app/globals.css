@@ -16,9 +16,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Airplane cursor - PNG for full browser compatibility */
-* {
-  cursor: url("/airplane-cursor.png") 3 3, auto;
+/* Airplane cursor — base64 PNG for maximum browser compatibility */
+*, *::before, *::after {
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADiNXWtAAAB7klEQVRIDe2UPUsDQRCG7y5BL+LFBP0Pdjb2FhbiB2IVUEt/h4WVprEQRKwstQgqFjaCjbUiYqutjWCiQj4g5/lMuINx2dwJFiI4MMzsvO/OzM7tnuP8y29PIGc2UCwWZwuFwrbv+wPtdvsePDI5P1qXSqWzcrkcieLfUXD+Jwk9y+bjJOa67kQulzun2BGxfBK32GEaWaGhE3RJ465exL4H6VaSG1itXq+vEuvGcUm66HleBe4cMV/iURQ9sp6E+yprWwFHxiKdC8GQWhiGp2ZS4ZD4BbPZaDR2sR2JiVgLCBCPZVn8DGmB76DVpGvN71sAUp4ih9iK3pD4dBwyioNOp7PRbDafkrhp0woIN63IBR0vwEm+iZm7t7bdIk3sysx1QPkz8QnTbpeTVcCRD6qSmm5FFXGDIBiDMKRJWSMaJsEzG/x45pf4MzqB+GB1TMA3yePfcJOmWb8JlnoCuedwevdbPmg885ps1AJWjpNLM3voe4KnFlDjacltYVOXIvLYvhSh6w9kDztO9wfg3/p/yXhaqPyXttikJc9rfxEMG6JTGtR+3xMk46EreaFVvQk/RAOJge/T9ZX4NulbQI1n03yh3JZRNfN1W+LMGMdeQh8gDlrIQ2DX6JoF+36IGY+ksItgWdc8ZftfgT4BbAyky0X4vDAAAAAASUVORK5CYII=") 3 3, auto;
 }
 
 body {
@@ -329,3 +329,4 @@ main {
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
 }
+

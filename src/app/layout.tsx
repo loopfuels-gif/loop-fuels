@@ -90,7 +90,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} antialiased`} style={{ cursor: `url("/airplane-cursor.png") 3 3, auto` }}>
+      <body className={`${geistSans.variable} antialiased`}>
         <ScrollAnimator />
         <Navbar />
         <main>{children}</main>
