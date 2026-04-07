@@ -11,15 +11,14 @@
   --font-sans: var(--font-geist-sans);
 }
 
-@layer base {
-  *, *::before, *::after {
-    cursor: url("/cursor.png") 3 3, auto;
-  }
-}
-
 /* ── Base ─────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+}
+
+/* Airplane cursor — outside layers so it beats all Tailwind utilities */
+*, *::before, *::after {
+  cursor: url("/cursor.png") 3 3, auto !important;
 }
 
 body {
