@@ -16,9 +16,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Airplane cursor — !important to override Tailwind cursor-default/pointer */
+/* Airplane cursor — percent-encoded SVG */
 *, *::before, *::after {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 32 32'><g transform='rotate(315 16 16)'><path d='M16 2C16.8 2 17.5 3 17.5 3L19 8V13L29 18V20.5L19 17.5V23L22 25.5V27.5L16 26L10 27.5V25.5L13 23V17.5L3 20.5V18L13 13V8L14.5 3C14.5 3 15.2 2 16 2Z' fill='%23111'/></g></svg>") 3 3, auto !important;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 32 32'%3E%3Cg transform='rotate(315 16 16)'%3E%3Cpath d='M16 2 C16.8 2 17.5 3 17.5 3 L19 8 L19 13 L29 18 L29 20.5 L19 17.5 L19 23 L22 25.5 L22 27.5 L16 26 L10 27.5 L10 25.5 L13 23 L13 17.5 L3 20.5 L3 18 L13 13 L13 8 L14.5 3 C14.5 3 15.2 2 16 2Z' fill='%23111111'/%3E%3C/g%3E%3C/svg%3E") 3 3, auto !important;
 }
 
 body {
