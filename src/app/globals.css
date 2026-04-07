@@ -16,7 +16,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom cursor handled by CustomCursor component */
+/* Hide default cursor — airplane shown by CustomCursor component */
+*, *::before, *::after {
+  cursor: none !important;
+}
 
 body {
   background: var(--color-background);
