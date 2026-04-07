@@ -16,10 +16,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Airplane cursor — outside layers so it beats all Tailwind utilities */
-*, *::before, *::after {
-  cursor: url("/cursor.png") 3 3, auto !important;
-}
+/* Custom cursor handled by CustomCursor component */
 
 body {
   background: var(--color-background);
