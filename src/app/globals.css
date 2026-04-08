@@ -14,11 +14,12 @@
 /* ── Base ─────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  cursor: url('/airplane-cursor.svg') 12 12, auto !important;
 }
 
 /* Pointer finger on clickable elements */
 a, button, [role="button"], input[type="submit"], input[type="button"], select, label[for], .cursor-pointer, summary, [onclick] {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 body {
