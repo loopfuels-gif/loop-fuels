@@ -72,8 +72,21 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Loop Fuels",
+              alternateName: "LoopFuels",
               url: "https://loopfuels.com",
-              logo: "https://loopfuels.com/logo.jpg",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://loopfuels.com/logo.jpg",
+                width: 1200,
+                height: 630,
+              },
+              description:
+                "Loop Fuels is pioneering the production of Sustainable Aviation Fuel (SAF) from algae, also extracting biostimulants and lipids.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                email: "loopfuels@gmail.com",
+                contactType: "customer service",
+              },
               sameAs: [],
             }),
           }}
@@ -85,6 +98,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Loop Fuels",
+              alternateName: "LoopFuels",
               url: "https://loopfuels.com",
             }),
           }}
