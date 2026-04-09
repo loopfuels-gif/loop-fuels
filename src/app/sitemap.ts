@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/biostimulants`,
+      lastModified: new Date(),
+      priority: 0.8,
+    },
     { url: `${baseUrl}/about`, lastModified: new Date(), priority: 0.7 },
     { url: `${baseUrl}/investors`, lastModified: new Date(), priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), priority: 0.6 },
