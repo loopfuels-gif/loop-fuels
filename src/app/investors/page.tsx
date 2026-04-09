@@ -196,8 +196,8 @@ export default function InvestorsPage() {
               Contact IR Team
               <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </Link>
-            <a href="mailto:investors@loopfuels.com" className="btn-animate btn-animate-outline inline-flex items-center justify-center gap-2 border border-white/25 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 backdrop-blur-sm">
-              investors@loopfuels.com
+            <a href="mailto:loopfuels@gmail.com" className="btn-animate btn-animate-outline inline-flex items-center justify-center gap-2 border border-white/25 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 backdrop-blur-sm">
+              loopfuels@gmail.com
               <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </a>
           </div>
