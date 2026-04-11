@@ -10,8 +10,9 @@ const footerLinks = {
   ],
   Resources: [
     { href: "/technology#process", label: "SAF Process" },
-    { href: "/technology#certifications", label: "Certifications" },
+    { href: "/biostimulants", label: "Biostimulants" },
     { href: "/sustainability#impact", label: "Impact Report" },
+    { href: "/blog", label: "Blog" },
   ],
 };
 

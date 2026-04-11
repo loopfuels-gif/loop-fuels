@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import SectionWrapper from "@/components/SectionWrapper";
 import IconCard from "@/components/IconCard";
@@ -6,6 +7,22 @@ import TypeWriter from "@/components/TypeWriter";
 import FloatingParticles from "@/components/FloatingParticles";
 import TiltCard from "@/components/TiltCard";
 import ProcessTimeline from "@/components/ProcessTimeline";
+
+export const metadata: Metadata = {
+  title: "Loop Fuels | Sustainable Aviation Fuel from Algae — Made in India",
+  description:
+    "Loop Fuels produces Sustainable Aviation Fuel (SAF) from algae using CSIR-IIP technology, reducing aviation carbon emissions by 80%. Also producing biostimulants and lipids. Based in India.",
+  keywords: [
+    "sustainable aviation fuel India",
+    "SAF manufacturer India",
+    "algae jet fuel",
+    "CSIR-IIP SAF",
+    "clean aviation fuel",
+    "biostimulants from algae",
+    "Loop Fuels",
+    "green aviation India",
+  ],
+};
 
 export default function Home() {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -5,6 +6,19 @@ import IconCard from "@/components/IconCard";
 import TiltCard from "@/components/TiltCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import AnimatedBarChart from "@/components/AnimatedBarChart";
+
+export const metadata: Metadata = {
+  title: "Investors",
+  description:
+    "Invest in Loop Fuels — India's SAF market opportunity projected to reach $61B by 2030. Explore our HEFA technology, market projections, and partnership opportunities.",
+  keywords: [
+    "invest in sustainable aviation fuel",
+    "SAF investment India",
+    "clean energy investment opportunity",
+    "Loop Fuels investors",
+    "aviation fuel startup funding",
+  ],
+};
 
 const highlights = [
   {

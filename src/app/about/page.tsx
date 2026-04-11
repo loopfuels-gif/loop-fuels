@@ -1,6 +1,21 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionWrapper from "@/components/SectionWrapper";
 import IconCard from "@/components/IconCard";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Loop Fuels — an Indian startup pioneering Sustainable Aviation Fuel (SAF) production from algae using CSIR-IIP technology. Our mission, values, and vision for clean aviation.",
+  keywords: [
+    "Loop Fuels about",
+    "SAF startup India",
+    "sustainable aviation fuel company",
+    "clean aviation India",
+    "algae fuel startup",
+  ],
+};
 
 const values = [
   {
@@ -87,6 +102,28 @@ export default function AboutPage() {
           {values.map((v) => (
             <IconCard key={v.title} icon={v.icon} title={v.title} description={v.description} />
           ))}
+        </div>
+      </SectionWrapper>
+
+      {/* Cross-links */}
+      <SectionWrapper>
+        <div className="text-center animate-on-scroll">
+          <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-4">Learn More About Loop Fuels</h2>
+          <p className="text-gray-500 mb-10 max-w-xl mx-auto">Explore our technology, sustainability initiatives, and investment opportunities.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/technology" className="btn-animate inline-flex items-center justify-center gap-2 bg-brand-green text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600">
+              Our Technology
+              <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </Link>
+            <Link href="/biostimulants" className="btn-animate btn-animate-outline inline-flex items-center justify-center gap-2 border border-brand-dark/15 text-brand-dark px-8 py-4 rounded-xl font-semibold hover:bg-gray-50">
+              Biostimulants
+              <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </Link>
+            <Link href="/contact" className="btn-animate btn-animate-outline inline-flex items-center justify-center gap-2 border border-brand-dark/15 text-brand-dark px-8 py-4 rounded-xl font-semibold hover:bg-gray-50">
+              Get in Touch
+              <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </Link>
+          </div>
         </div>
       </SectionWrapper>
     </>

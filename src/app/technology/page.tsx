@@ -526,6 +526,28 @@ export default function TechnologyPage() {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* Cross-links */}
+      <section className="bg-gradient-to-br from-brand-dark to-brand-dark/95 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 animate-on-scroll">Explore More</h2>
+          <p className="text-gray-400 mb-10 max-w-xl mx-auto animate-on-scroll">Discover how our technology powers sustainability and creates value beyond aviation fuel.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll">
+            <a href="/biostimulants" className="btn-animate inline-flex items-center justify-center gap-2 bg-brand-green text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600">
+              Biostimulants from Algae
+              <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a href="/sustainability" className="btn-animate btn-animate-outline inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/5 backdrop-blur-sm">
+              Sustainability Impact
+              <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+            <a href="/investors" className="btn-animate btn-animate-outline inline-flex items-center justify-center gap-2 border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/5 backdrop-blur-sm">
+              Invest in Loop Fuels
+              <svg className="btn-arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

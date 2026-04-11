@@ -19,5 +19,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/about`, lastModified: new Date(), priority: 0.7 },
     { url: `${baseUrl}/investors`, lastModified: new Date(), priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), priority: 0.6 },
+    { url: `${baseUrl}/blog`, lastModified: new Date(), priority: 0.7 },
+    {
+      url: `${baseUrl}/blog/sustainable-aviation-fuel-india`,
+      lastModified: new Date(),
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/what-are-biostimulants`,
+      lastModified: new Date(),
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/csir-iip-saf-technology`,
+      lastModified: new Date(),
+      priority: 0.6,
+    },
   ];
 }

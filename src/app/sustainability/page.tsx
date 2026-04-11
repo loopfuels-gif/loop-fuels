@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -6,6 +7,19 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import TiltCard from "@/components/TiltCard";
 import CircularEconomy from "@/components/CircularEconomy";
 import FlipCard from "@/components/FlipCard";
+
+export const metadata: Metadata = {
+  title: "Sustainability",
+  description:
+    "Loop Fuels reduces aviation carbon emissions by up to 80% with Sustainable Aviation Fuel. See our environmental impact, circular economy model, and UN SDG alignment.",
+  keywords: [
+    "sustainable aviation fuel environmental impact",
+    "SAF carbon reduction India",
+    "circular economy aviation fuel",
+    "UN SDG aviation",
+    "green aviation India",
+  ],
+};
 
 const sdgs = [
   { number: 7, title: "Affordable & Clean Energy", description: "Producing renewable fuel that accelerates the transition to clean energy in aviation.", color: "from-yellow-400 to-yellow-500" },
