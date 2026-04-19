@@ -127,19 +127,7 @@ export default function InvestorsPage() {
             Key Metrics
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
-          {/* Fund to Raise */}
-          <TiltCard>
-            <div className="animate-on-scroll group relative rounded-2xl bg-gradient-to-br from-white to-brand-light/30 border border-green-100/60 p-7 overflow-hidden hover:shadow-xl hover:shadow-brand-green/10 transition-shadow duration-500">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-brand-green/5 to-transparent rounded-bl-full pointer-events-none" />
-              <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-green to-emerald-600 flex items-center justify-center mb-5 shadow-lg shadow-brand-green/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                  <span className="text-2xl font-bold text-white leading-none">₹</span>
-                </div>
-                <AnimatedCounter value="1000" label="Fund to Raise (₹ Cr)" compact />
-              </div>
-            </div>
-          </TiltCard>
+        <div className="grid md:grid-cols-3 gap-6 stagger-children">
           {/* Production Capacity */}
           <TiltCard>
             <div className="animate-on-scroll group relative rounded-2xl bg-gradient-to-br from-white to-blue-50/30 border border-sky-100/60 p-7 overflow-hidden hover:shadow-xl hover:shadow-brand-accent/10 transition-shadow duration-500">
