@@ -10,7 +10,8 @@ interface AnimatedCounterProps {
 
 export default function AnimatedCounter({ value, label, compact }: AnimatedCounterProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [displayed, setDisplayed] = useState("0");
+  // Start with the real value so SSR/crawlers index the correct number
+  const [displayed, setDisplayed] = useState(value);
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
@@ -43,6 +44,8 @@ export default function AnimatedCounter({ value, label, compact }: AnimatedCount
     const prefix = match[1];
     const target = parseFloat(match[2]);
     const suffix = match[3];
+    // Reset to 0 before animating so the count-up plays from the beginning
+    setDisplayed(prefix + "0" + suffix);
     const duration = 2000;
     const totalSteps = 60;
     let step = 0;

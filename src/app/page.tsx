@@ -9,9 +9,12 @@ import TiltCard from "@/components/TiltCard";
 import ProcessTimeline from "@/components/ProcessTimeline";
 
 export const metadata: Metadata = {
-  title: "Loop Fuels | Sustainable Aviation Fuel from Algae — Made in India",
+  title: "Sustainable Aviation Fuel from Algae | Loop Fuels India",
   description:
-    "Loop Fuels produces Sustainable Aviation Fuel (SAF) from algae using CSIR-IIP technology, reducing aviation carbon emissions by 80%. Also producing biostimulants and lipids. Based in India.",
+    "Loop Fuels makes Sustainable Aviation Fuel (SAF) from algae in India, cutting aviation carbon emissions up to 80%. See how we're decarbonizing flight.",
+  alternates: {
+    canonical: "https://loopfuels.com/",
+  },
   keywords: [
     "sustainable aviation fuel India",
     "SAF manufacturer India",
@@ -51,15 +54,16 @@ export default function Home() {
               Sustainable Aviation Fuel
             </span>
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight animate-fade-in-up animation-delay-200">
-              Powering the Future <br />
+              Sustainable Aviation Fuel —{" "}<br />
+              Powering the Future{" "}
               <span className="gradient-text">
-                <TypeWriter text="of Clean Flight" delay={90} startDelay={1000} />
+                <TypeWriter text="of Flight" delay={90} startDelay={1000} />
               </span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300/80 mb-10 leading-relaxed max-w-2xl animate-fade-in-up animation-delay-400">
-              Loop Fuels produces next-generation Sustainable Aviation Fuel that
-              reduces lifecycle carbon emissions by up to 80%. We&apos;re closing the
-              loop on aviation&apos;s carbon footprint.
+              Loop Fuels produces SAF using HEFA technology, processing
+              algae-derived oils and waste fats into drop-in jet fuel — reducing
+              lifecycle carbon emissions by up to 80%.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-600">
               <Link
@@ -118,7 +122,7 @@ export default function Home() {
                 </svg>
               }
               title="Renewable Feedstocks"
-              description="Produced from waste oils, agricultural residues, and other sustainable sources that don't compete with food production."
+              description="Produced from algae-derived oils and waste fats — sustainable sources that don't compete with food production."
             />
           </TiltCard>
           <TiltCard>
@@ -158,9 +162,9 @@ export default function Home() {
               Advanced Refinery Technology
             </h2>
             <p className="text-gray-500 mb-6 leading-relaxed">
-              HEFA (Hydroprocessed Esters and Fatty Acids) technology
-              converts waste feedstocks into high-quality SAF through a proven,
-              scalable process.
+              HEFA (Hydroprocessed Esters and Fatty Acids) technology converts
+              algae-derived oils and waste fats into ASTM-certified, drop-in jet
+              fuel through a proven, scalable process.
             </p>
             <div className="mb-8">
               <ProcessTimeline />

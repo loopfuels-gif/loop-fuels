@@ -84,9 +84,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Loop Fuels. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-gray-500">
-            <a href="#" className="hover:text-gray-300 transition-colors duration-300">Privacy Policy</a>
+            <Link href="/privacy-policy" className="hover:text-gray-300 transition-colors duration-300">Privacy Policy</Link>
             <span className="text-gray-700">·</span>
-            <a href="#" className="hover:text-gray-300 transition-colors duration-300">Terms of Service</a>
+            <Link href="/terms-of-service" className="hover:text-gray-300 transition-colors duration-300">Terms of Service</Link>
           </div>
         </div>
       </div>
