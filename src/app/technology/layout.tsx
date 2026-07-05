@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "SAF manufacturing process India",
     "algae to jet fuel",
   ],
+  alternates: { canonical: "/technology" },
 };
 
 export default function TechnologyLayout({

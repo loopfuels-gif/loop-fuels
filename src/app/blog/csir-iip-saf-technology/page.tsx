@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     "CSIR-IIP Dehradun aviation fuel",
     "HEFA technology India",
   ],
+  alternates: { canonical: "/blog/csir-iip-saf-technology" },
 };
 
 export default function ArticlePage() {

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of Service for Loop Fuels.",
+  alternates: { canonical: "/terms-of-service" },
 };
 
 export default function TermsOfService() {

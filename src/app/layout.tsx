@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     url: "https://loopfuels.com",
     images: [
       {
-        // TODO: replace with real 1200×630 branded image at /og-image.jpg
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
@@ -41,7 +40,6 @@ export const metadata: Metadata = {
     title: "Sustainable Aviation Fuel from Algae | Loop Fuels India",
     description:
       "Loop Fuels makes Sustainable Aviation Fuel (SAF) from algae in India, cutting aviation carbon emissions up to 80%. See how we're decarbonizing flight.",
-    // TODO: replace with real 1200×630 branded image at /og-image.jpg
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -53,9 +51,6 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
     shortcut: "/favicon-32.png",
-  },
-  verification: {
-    google: "",
   },
 };
 

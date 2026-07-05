@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     "UN SDG aviation",
     "green aviation India",
   ],
+  alternates: { canonical: "/sustainability" },
 };
 
 const sdgs = [

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     "sustainable aviation fuel enquiry",
     "Loop Fuels email",
   ],
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactLayout({

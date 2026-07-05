@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     "soil health improvement",
     "organic farming India",
   ],
+  alternates: { canonical: "/blog/what-are-biostimulants" },
 };
 
 export default function ArticlePage() {

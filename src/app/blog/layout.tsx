@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "clean aviation articles",
     "algae fuel insights",
   ],
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogLayout({

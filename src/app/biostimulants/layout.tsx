@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "algae agriculture India",
     "organic farming biostimulants",
   ],
+  alternates: { canonical: "/biostimulants" },
 };
 
 const faqJsonLd = {

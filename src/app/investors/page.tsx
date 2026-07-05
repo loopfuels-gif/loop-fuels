@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "Loop Fuels investors",
     "aviation fuel startup funding",
   ],
+  alternates: { canonical: "/investors" },
 };
 
 const highlights = [

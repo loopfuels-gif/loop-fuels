@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "clean aviation India",
     "algae fuel startup",
   ],
+  alternates: { canonical: "/about" },
 };
 
 const values = [

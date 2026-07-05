@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "Indian aviation decarbonization",
     "SAF mandate India 2027",
   ],
+  alternates: { canonical: "/blog/sustainable-aviation-fuel-india" },
 };
 
 export default function ArticlePage() {
